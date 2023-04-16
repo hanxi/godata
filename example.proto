@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package example;
+
+option go_package = "github.com/hanxi/godata/example";
+
+message PhoneNumber {
+    string number = 1;
+    map<uint32, string> users = 2; // 普通 map
+    User my = 3; // 包含子对象
+}
+
+message User {
+    string name = 1;
+    uint32 age = 2;
+    map<string,User> friends = 3; // map 中包含子对象
+    User sun = 4; // 子对象
+}
+
